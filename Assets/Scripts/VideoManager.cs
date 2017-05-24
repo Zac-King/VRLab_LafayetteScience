@@ -15,7 +15,7 @@ public class VideoManager : MonoBehaviour
 
 	void Start ()
     {
-        //LoadVideoMetaData();
+        LoadVideoMetaData();
 
         m_videoPlayer.source = VideoSource.Url;
         m_videoPlayer.SetTargetAudioSource(0, m_videoPlayer.GetComponent<AudioSource>());
@@ -123,8 +123,18 @@ public class VideoManager : MonoBehaviour
     private void LoadVideoMetaData()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(VideoMetas[]));
-        FileStream stream = new FileStream(Path.Combine(Application.streamingAssetsPath, "_VIDEO_METADATA.xml"), FileMode.Open);
-        m_videoClips = serializer.Deserialize(stream) as VideoMetas[];
+        FileStream stream = new FileStream(Path.Combine(Application.streamingAssetsPath, "_VIDEO_METADATA.xml"), FileMode.OpenOrCreate);
+
+        if (stream.Length < 1)
+        {
+            serializer.Serialize(stream, m_videoClips);
+        }
+
+        else
+        {
+            m_videoClips = serializer.Deserialize(stream) as VideoMetas[];
+        }
+
         stream.Close();
     }
 }
@@ -135,4 +145,11 @@ public class VideoMetas
     public string m_video;
     public string m_thumbnail;
     public string m_description;
+
+    public VideoMetas()
+    {
+        m_video = " ";
+        m_thumbnail = " ";
+        m_description = " ";
+    }
 }
