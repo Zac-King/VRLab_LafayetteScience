@@ -2,13 +2,15 @@
 using UnityEngine.Video;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 public class VideoManager : MonoBehaviour
 {
     public VideoPlayer m_videoPlayer;
     public GameObject m_fadeSphere;
 
-    public List<string> m_videoClips = new List<string>();
+    [XmlArray("VideosMetaData"), XmlArrayItem("Meta")]
+    public List<VideoMetas> m_videoClips = new List<VideoMetas>();
 
 	void Start ()
     {
@@ -40,7 +42,6 @@ public class VideoManager : MonoBehaviour
             && m_videoPlayer.gameObject.activeInHierarchy)
         {
             FadeVideoOut();
-            //StopVideo();
         }
     }
 
@@ -87,16 +88,40 @@ public class VideoManager : MonoBehaviour
     public IEnumerator _FadeToVideoAtIndex(int index)
     {
         yield return StartCoroutine(_FadeIn());
+
+        m_videoPlayer.GetTargetAudioSource(0).volume = 0;
         PlayVideoAtIndex(index);
+
         yield return new WaitForSeconds(1);
-        yield return StartCoroutine(_FadeOut());
+        StartCoroutine(_FadeOut());
+
+        while (m_videoPlayer.GetTargetAudioSource(0).volume < 1)
+        {
+            m_videoPlayer.GetTargetAudioSource(0).volume += Time.deltaTime * 0.5f;
+            yield return null;
+        }
     }
 
     public IEnumerator _FadeVideoOut()
     {
         yield return StartCoroutine(_FadeIn());
+
+        while (m_videoPlayer.GetTargetAudioSource(0).volume > 0)
+        {
+            m_videoPlayer.GetTargetAudioSource(0).volume -= Time.deltaTime * 0.5f;
+            yield return null;
+        }
+
         StopVideo();
-        yield return new WaitForSeconds(1);
-        yield return StartCoroutine(_FadeOut());
+        StartCoroutine(_FadeOut());
+    }
+
+
+    [System.Serializable]
+    public class VideoMetas
+    {
+        public string m_video;
+        public string m_thumbnail;
+        public string m_description;
     }
 }
