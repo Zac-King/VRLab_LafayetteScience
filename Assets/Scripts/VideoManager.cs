@@ -3,6 +3,7 @@ using UnityEngine.Video;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using System.IO;
 
 public class VideoManager : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class VideoManager : MonoBehaviour
     public GameObject m_fadeSphere;
 
     [XmlArray("VideosMetaData"), XmlArrayItem("Meta")]
-    public List<VideoMetas> m_videoClips = new List<VideoMetas>();
+    public VideoMetas[] m_videoClips = new VideoMetas[8];
 
 	void Start ()
     {
+        //LoadVideoMetaData();
+
         m_videoPlayer.source = VideoSource.Url;
         m_videoPlayer.SetTargetAudioSource(0, m_videoPlayer.GetComponent<AudioSource>());
 	}
@@ -26,7 +29,7 @@ public class VideoManager : MonoBehaviour
     public void PlayVideoAtIndex(int index)
     {
         m_videoPlayer.gameObject.SetActive(true);
-        m_videoPlayer.url = Application.streamingAssetsPath + "/" +m_videoClips[index];
+        m_videoPlayer.url = Application.streamingAssetsPath + "/" + m_videoClips[index].m_video;
         m_videoPlayer.Play();
     }
 
@@ -117,11 +120,19 @@ public class VideoManager : MonoBehaviour
     }
 
 
-    [System.Serializable]
-    public class VideoMetas
+    private void LoadVideoMetaData()
     {
-        public string m_video;
-        public string m_thumbnail;
-        public string m_description;
+        XmlSerializer serializer = new XmlSerializer(typeof(VideoMetas[]));
+        FileStream stream = new FileStream(Path.Combine(Application.streamingAssetsPath, "_VIDEO_METADATA.xml"), FileMode.Open);
+        m_videoClips = serializer.Deserialize(stream) as VideoMetas[];
+        stream.Close();
     }
+}
+
+[System.Serializable, XmlRoot]
+public class VideoMetas
+{
+    public string m_video;
+    public string m_thumbnail;
+    public string m_description;
 }
