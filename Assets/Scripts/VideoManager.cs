@@ -13,12 +13,16 @@ public class VideoManager : MonoBehaviour
     [XmlArray("VideosMetaData"), XmlArrayItem("Meta")]
     public VideoMetas[] m_videoClips = new VideoMetas[8];
 
+    [SerializeField]
+    private AudioSource[] m_steroSources = new AudioSource[6];
+
 	void Start ()
     {
-        LoadVideoMetaData();
+        //LoadVideoMetaData();
 
         m_videoPlayer.source = VideoSource.Url;
-        m_videoPlayer.SetTargetAudioSource(0, m_videoPlayer.GetComponent<AudioSource>());
+        SetSurroundSound();
+        //m_videoPlayer.SetTargetAudioSource(0, m_videoPlayer.GetComponent<AudioSource>());
 	}
 	
 	void Update ()
@@ -47,6 +51,16 @@ public class VideoManager : MonoBehaviour
             FadeVideoOut();
         }
     }
+
+
+    public void SetSurroundSound()
+    {
+        for (int i = 0; i < m_steroSources.Length; ++i)
+        {
+            m_videoPlayer.SetTargetAudioSource((ushort)i, m_steroSources[i]);
+        }
+    }
+
 
     public IEnumerator _FadeIn()
     {
@@ -118,6 +132,8 @@ public class VideoManager : MonoBehaviour
         StopVideo();
         StartCoroutine(_FadeOut());
     }
+
+
 
 
     private void LoadVideoMetaData()
