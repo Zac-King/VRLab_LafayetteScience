@@ -2086,22 +2086,22 @@ Prefab:
     - target: {fileID: 82642617722741112, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: Pan2D
-      value: -0.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 82583607544676796, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: Pan2D
-      value: -0.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 82057378221670558, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: Pan2D
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82335677275017878, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: Pan2D
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82252784385146500, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
@@ -2116,32 +2116,32 @@ Prefab:
     - target: {fileID: 82924041535584830, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82583607544676796, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82057378221670558, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82252784385146500, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82335677275017878, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82642617722741112, guid: 4e631c97304bb83478b5caa684622eb7,
         type: 2}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1974046150806448, guid: 4e631c97304bb83478b5caa684622eb7, type: 2}
       propertyPath: m_IsActive
