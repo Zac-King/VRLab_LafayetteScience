@@ -11,6 +11,11 @@ public class RaySelector : MonoBehaviour
     private RaycastHit m_rayCursor;
     private GameObject m_selectedGameobject;
 
+    private void Start()
+    {
+        m_hand = GetHandFromParent(gameObject);
+    }
+
     private void Update()
     {
         if (Physics.Raycast(transform.position, transform.forward, out m_rayCursor, m_range, m_mask))
@@ -49,6 +54,13 @@ public class RaySelector : MonoBehaviour
             m_selectedGameobject.GetComponent<MenuItemSelectable>().ItemSelect();
         }
 
+    }
+
+    private Hand GetHandFromParent(GameObject child)
+    {
+        if (child.transform.parent == null) return null;
+        else if (child.GetComponentInParent<Hand>() == null) return GetHandFromParent(child.transform.parent.gameObject);
+        else return child.GetComponentInParent<Hand>();
     }
 
 }
