@@ -10,6 +10,8 @@ public class VideoManager : MonoBehaviour
     public VideoPlayer m_videoPlayer;
     public GameObject m_fadeSphere;
 
+    public UnityEngine.Events.UnityEvent m_onVideoEnd;
+
     [XmlArray("VideosMetaData"), XmlArrayItem("Meta")]
     public VideoMetas[] m_videoClips = new VideoMetas[8];
 
@@ -41,6 +43,7 @@ public class VideoManager : MonoBehaviour
     {
         m_videoPlayer.Stop();
         m_videoPlayer.gameObject.SetActive(false);
+        m_onVideoEnd.Invoke();
     }
 
     public void CheckVideoEnd()
