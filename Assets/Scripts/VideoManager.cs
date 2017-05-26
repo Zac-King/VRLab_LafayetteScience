@@ -60,7 +60,7 @@ public class VideoManager : MonoBehaviour
     {
         for (int i = 0; i < m_steroSources.Length; ++i)
         {
-            m_videoPlayer.SetTargetAudioSource((ushort)i, m_steroSources[i]);
+            m_videoPlayer.SetTargetAudioSource(0, m_steroSources[i]);
         }
     }
 
