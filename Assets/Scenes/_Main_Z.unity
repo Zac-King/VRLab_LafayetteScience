@@ -714,6 +714,102 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.912943, y: 3.2939537, z: 0.93746275}
   m_Center: {x: 0.00000011920929, y: 0.00000011920929, z: -0.14959314}
+--- !u!1 &347390255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 347390257}
+  - component: {fileID: 347390256}
+  m_Layer: 0
+  m_Name: OZOManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &347390256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 347390255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412e69458751b7340919b41580375558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ozoViewer: {fileID: 385519843}
+  m_ozoPlayerControler: {fileID: 2062346847}
+  m_licenseID: TANTRUM
+  m_videos: []
+--- !u!4 &347390257
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 347390255}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &385519842
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012390755190, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013600096054, guid: a94264db072282946a26595f8ef423fd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a94264db072282946a26595f8ef423fd, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &385519843 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011733512596, guid: a94264db072282946a26595f8ef423fd,
+    type: 2}
+  m_PrefabInternal: {fileID: 385519842}
+  m_Script: {fileID: 11500000, guid: 132300189377f7640aa4ec1540b1e472, type: 3}
 --- !u!1001 &414853725
 Prefab:
   m_ObjectHideFlags: 0
@@ -1500,6 +1596,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1517619179667536, guid: c49d5aaf8517f544290418f2261ce487, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c49d5aaf8517f544290418f2261ce487, type: 2}
   m_IsPrefabParent: 0
@@ -2151,6 +2251,10 @@ Prefab:
         type: 2}
       propertyPath: m_videoClips.Array.data[1].m_video
       value: _Grass0.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445679166693616, guid: 4e631c97304bb83478b5caa684622eb7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e631c97304bb83478b5caa684622eb7, type: 2}
@@ -3038,6 +3142,104 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
   m_PrefabInternal: {fileID: 1312773304}
+--- !u!1001 &2062346846
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011372236410, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[1]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[2]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[3]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[4]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[5]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[6]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[7]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: _videoFiles.Array.data[0]
+      value: asset://test_TB.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3a664894f2debb0488eb5ebf105b5c28, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &2062346847 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011733392350, guid: 3a664894f2debb0488eb5ebf105b5c28,
+    type: 2}
+  m_PrefabInternal: {fileID: 2062346846}
+  m_Script: {fileID: 11500000, guid: ac88e39205b929d4eaa2ebf977b75779, type: 3}
 --- !u!82 &2090998260 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82057378221670558, guid: 4e631c97304bb83478b5caa684622eb7,
