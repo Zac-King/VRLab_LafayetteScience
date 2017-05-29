@@ -7,8 +7,8 @@ using System.IO;
 
 public class VideoManager : MonoBehaviour
 {
-    public VideoPlayer m_videoPlayer;
-    public GameObject m_fadeSphere;
+    public OZOPlayer m_ozoPlayer;
+    public PlayControl m_ozoPlayController;
 
     public UnityEngine.Events.UnityEvent m_onVideoEnd;
 
@@ -22,119 +22,120 @@ public class VideoManager : MonoBehaviour
     {
         //LoadVideoMetaData();
 
-        m_videoPlayer.source = VideoSource.Url;
-        SetSurroundSound();
+        //m_videoPlayer.source = VideoSource.Url;
+        //SetSurroundSound();
         //m_videoPlayer.SetTargetAudioSource(0, m_videoPlayer.GetComponent<AudioSource>());
 	}
 	
 	void Update ()
     {
-        CheckVideoEnd();
+        //CheckVideoEnd();
 	}
 
     public void PlayVideoAtIndex(int index)
     {
-        m_videoPlayer.gameObject.SetActive(true);
-        m_videoPlayer.url = Application.streamingAssetsPath + "/" + m_videoClips[index].m_video;
-        m_videoPlayer.Play();
+        m_ozoPlayer.gameObject.SetActive(true);
+
+        //m_videoPlayer.url = Application.streamingAssetsPath + "/" + m_videoClips[index].m_video;
+        //m_videoPlayer.Play();
     }
 
-    public void StopVideo()
-    {
-        m_videoPlayer.Stop();
-        m_videoPlayer.gameObject.SetActive(false);
-        m_onVideoEnd.Invoke();
-    }
+    //public void StopVideo()
+    //{
+    //    m_videoPlayer.Stop();
+    //    m_videoPlayer.gameObject.SetActive(false);
+    //    m_onVideoEnd.Invoke();
+    //}
 
-    public void CheckVideoEnd()
-    {
-        if((ulong)m_videoPlayer.frame == m_videoPlayer.frameCount - 60 
-            && m_videoPlayer.gameObject.activeInHierarchy)
-        {
-            FadeVideoOut();
-        }
-    }
-
-
-    public void SetSurroundSound()
-    {
-        for (int i = 0; i < m_steroSources.Length; ++i)
-        {
-            m_videoPlayer.SetTargetAudioSource((ushort)i, m_steroSources[i]);
-        }
-    }
+    //public void CheckVideoEnd()
+    //{
+    //    if((ulong)m_videoPlayer.frame == m_videoPlayer.frameCount - 60 
+    //        && m_videoPlayer.gameObject.activeInHierarchy)
+    //    {
+    //        FadeVideoOut();
+    //    }
+    //}
 
 
-    public IEnumerator _FadeIn()
-    {
-        Material mat = m_fadeSphere.GetComponent<Renderer>().material;
-        Color color = mat.color;
+    //public void SetSurroundSound()
+    //{
+    //    for (int i = 0; i < m_steroSources.Length; ++i)
+    //    {
+    //        m_videoPlayer.SetTargetAudioSource((ushort)i, m_steroSources[i]);
+    //    }
+    //}
 
-        while(mat.color.a < 1)
-        {
-            color.a += Time.deltaTime;
-            mat.color = color;
-            yield return false;
-        }
 
-        yield return true;
-    }
+    //public IEnumerator _FadeIn()
+    //{
+    //    Material mat = m_fadeSphere.GetComponent<Renderer>().material;
+    //    Color color = mat.color;
 
-    public IEnumerator _FadeOut()
-    {
-        Material mat = m_fadeSphere.GetComponent<Renderer>().material;
-        Color color = mat.color;
+    //    while(mat.color.a < 1)
+    //    {
+    //        color.a += Time.deltaTime;
+    //        mat.color = color;
+    //        yield return false;
+    //    }
 
-        while (mat.color.a > 0)
-        {
-            color.a -= Time.deltaTime;
-            mat.color = color;
-            yield return false;
-        }
+    //    yield return true;
+    //}
 
-        yield return true;
-    }
+    //public IEnumerator _FadeOut()
+    //{
+    //    Material mat = m_fadeSphere.GetComponent<Renderer>().material;
+    //    Color color = mat.color;
 
-    public void FadeToVideoAtIndex(int index)
-    {
-        StartCoroutine(_FadeToVideoAtIndex(index));
-    }
+    //    while (mat.color.a > 0)
+    //    {
+    //        color.a -= Time.deltaTime;
+    //        mat.color = color;
+    //        yield return false;
+    //    }
 
-    public void FadeVideoOut()
-    {
-        StartCoroutine(_FadeVideoOut());
-    }
+    //    yield return true;
+    //}
 
-    public IEnumerator _FadeToVideoAtIndex(int index)
-    {
-        yield return StartCoroutine(_FadeIn());
+    //public void FadeToVideoAtIndex(int index)
+    //{
+    //    StartCoroutine(_FadeToVideoAtIndex(index));
+    //}
 
-        m_videoPlayer.GetTargetAudioSource(0).volume = 0;
-        PlayVideoAtIndex(index);
+    //public void FadeVideoOut()
+    //{
+    //    StartCoroutine(_FadeVideoOut());
+    //}
 
-        yield return new WaitForSeconds(1);
-        StartCoroutine(_FadeOut());
+    //public IEnumerator _FadeToVideoAtIndex(int index)
+    //{
+    //    yield return StartCoroutine(_FadeIn());
 
-        while (m_videoPlayer.GetTargetAudioSource(0).volume < 1)
-        {
-            m_videoPlayer.GetTargetAudioSource(0).volume += Time.deltaTime * 0.5f;
-            yield return null;
-        }
-    }
+    //    m_videoPlayer.GetTargetAudioSource(0).volume = 0;
+    //    PlayVideoAtIndex(index);
 
-    public IEnumerator _FadeVideoOut()
-    {
-        yield return StartCoroutine(_FadeIn());
+    //    yield return new WaitForSeconds(1);
+    //    StartCoroutine(_FadeOut());
 
-        while (m_videoPlayer.GetTargetAudioSource(0).volume > 0)
-        {
-            m_videoPlayer.GetTargetAudioSource(0).volume -= Time.deltaTime * 0.5f;
-            yield return null;
-        }
+    //    while (m_videoPlayer.GetTargetAudioSource(0).volume < 1)
+    //    {
+    //        m_videoPlayer.GetTargetAudioSource(0).volume += Time.deltaTime * 0.5f;
+    //        yield return null;
+    //    }
+    //}
 
-        StopVideo();
-        StartCoroutine(_FadeOut());
-    }
+    //public IEnumerator _FadeVideoOut()
+    //{
+    //    yield return StartCoroutine(_FadeIn());
+
+    //    while (m_videoPlayer.GetTargetAudioSource(0).volume > 0)
+    //    {
+    //        m_videoPlayer.GetTargetAudioSource(0).volume -= Time.deltaTime * 0.5f;
+    //        yield return null;
+    //    }
+
+    //    StopVideo();
+    //    StartCoroutine(_FadeOut());
+    //}
 
 
 
@@ -162,13 +163,13 @@ public class VideoManager : MonoBehaviour
 public class VideoMetas
 {
     public string m_video;
-    public string m_thumbnail;
-    public string m_description;
+    //public string m_thumbnail;
+    //public string m_description;
 
     public VideoMetas()
     {
         m_video = " ";
-        m_thumbnail = " ";
-        m_description = " ";
+        //m_thumbnail = " ";
+        //m_description = " ";
     }
 }
