@@ -1,0 +1,6 @@
+framework module OZOPlayerUnity {
+  umbrella header "OZOPlayerUnity.h"
+
+  export *
+  module * { export * }
+}
